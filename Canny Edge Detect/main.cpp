@@ -19,7 +19,7 @@ using namespace std;
 
 int main()
 {
-    cv::String filePath = "/Users/hasanakg/Desktop/stpietro.jpg"; //Filepath of input image
+    cv::String filePath = "../Sample Images/stpietro.jpg"; //Filepath of input image
     canny cny(filePath);
         
     return 0;
