@@ -1,0 +1,22 @@
+Lane Detection:
+
+https://www.hackster.io/kemfic/simple-lane-detection-c3db2f
+https://www.hackster.io/kemfic/curved-lane-detection-34f771
+
+https://github.com/amusi/awesome-lane-detection
+https://paperswithcode.com/task/lane-detection - Only machine learning
+
+https://towardsdatascience.com/tutorial-build-a-lane-detector-679fd8953132 - Using Python
+https://medium.com/@mrhwick/simple-lane-detection-with-opencv-bfeb6ae54ec0 - Using Python
+https://towardsdatascience.com/finding-lane-lines-simple-pipeline-for-lane-detection-d02b62e7572b - Using Python
+
+
+Canny:
+
+https://docs.opencv.org/3.4/da/d5c/tutorial_canny_detector.html
+http://www.pages.drexel.edu/~nk752/Research/cannyTut2.html
+
+Datasets:
+
+https://xingangpan.github.io/projects/CULane.html
+https://github.com/TuSimple/tusimple-benchmark/issues/3
