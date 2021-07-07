@@ -40,28 +40,30 @@ canny::canny(String filename)
             cout << filter[i][j] << " ";
         }
     }
-    grayscaled = Mat(img.toGrayScale()); //Grayscale the image
+    cout << endl;
+    grayscaled = Mat(toGrayScale()); //Grayscale the image
     gFiltered = Mat(useFilter(grayscaled, filter)); //Gaussian Filter
     sFiltered = Mat(sobel()); //Sobel Filter
 
     non = Mat(nonMaxSupp()); //Non-Maxima Suppression
-    thres = Mat(threshold(non, 20, 40)); //Double Threshold and Finalize
-	
-	namedWindow("Original");  
+    thres = Mat(threshold(non, 30, 50)); //Double Threshold and Finalize
+
+    namedWindow("Original");
     namedWindow("GrayScaled");
     namedWindow("Gaussian Blur");
     namedWindow("Sobel Filtered");
     namedWindow("Non-Maxima Supp.");
     namedWindow("Final");
 
-    imshow("Original", img);                  
+    imshow("Original", img);
     imshow("GrayScaled", grayscaled);
     imshow("Gaussian Blur", gFiltered);
     imshow("Sobel Filtered", sFiltered);
     imshow("Non-Maxima Supp.", non);
     imshow("Final", thres);
+    waitKey(0); // Waits for a key press to close the windows
 
-	}
+    }
 }
 
 Mat canny::toGrayScale()
@@ -271,7 +273,7 @@ Mat canny::threshold(Mat imgin,int low, int high)
                 {
                     for (int y = j-1; y<j+2; y++) 
                     {
-                        if(x <= 0 || y <= 0 || EdgeMat.rows || y > EdgeMat.cols) //Out of bounds
+                        if(x <= 0 || y <= 0 || x > EdgeMat.rows || y > EdgeMat.cols) //Out of bounds
                             continue;
                         else
                         {
@@ -281,7 +283,7 @@ Mat canny::threshold(Mat imgin,int low, int high)
                                 anyHigh = true;
                                 break;
                             }
-                            else if(EdgeMat.at<uchar>(x,y) <= high && EdgeMat.at<uchar>(x,y) >= low)
+                            else if(EdgeMat.at<uchar>(x,y) >= low)
                                 anyBetween = true;
                         }
                     }
